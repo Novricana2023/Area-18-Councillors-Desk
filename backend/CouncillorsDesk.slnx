@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CouncillorsDesk.Api/CouncillorsDesk.Api.csproj" />
+  <Project Path="CouncillorsDesk.Core/CouncillorsDesk.Core.csproj" />
+  <Project Path="CouncillorsDesk.Infrastructure/CouncillorsDesk.Infrastructure.csproj" />
+</Solution>

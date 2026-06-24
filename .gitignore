@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Build outputs
+backend/**/bin/
+backend/**/obj/
+backend/**/uploads/
+
+# Environment & secrets — NEVER commit real values
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.env
+!*.env.example
+docker-compose.env
+backend/.env
+frontend/.env.local
+**/appsettings.Development.local.json
+**/secrets.json
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test / coverage
+coverage/

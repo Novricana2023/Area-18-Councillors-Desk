@@ -1,0 +1,6 @@
+@CouncillorsDesk.Api_HostAddress = http://localhost:5284
+
+GET {{CouncillorsDesk.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
