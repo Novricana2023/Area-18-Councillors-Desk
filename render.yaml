@@ -1,0 +1,73 @@
+services:
+  - type: web
+    name: councillors-desk-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: frankfurt
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: PORT
+        value: "8080"
+      - key: ConnectionStrings__DefaultConnection
+        fromDatabase:
+          name: councillors-desk-db
+          property: connectionString
+      - key: Jwt__Secret
+        generateValue: true
+      - key: Jwt__Issuer
+        value: CouncillorsDesk
+      - key: Jwt__Audience
+        value: CouncillorsDesk
+      - key: Jwt__ExpirationMinutes
+        value: "480"
+      - key: App__FrontendUrl
+        sync: false
+      - key: Google__ClientId
+        sync: false
+      - key: Google__ClientSecret
+        sync: false
+      - key: SUPER_ADMIN_PASSWORD
+        sync: false
+      - key: Smtp__Host
+        sync: false
+      - key: Smtp__Port
+        value: "587"
+      - key: Smtp__Username
+        sync: false
+      - key: Smtp__Password
+        sync: false
+      - key: Smtp__FromEmail
+        value: noreply@area18.mw
+      - key: Smtp__FromName
+        value: Area 18 Councillor's Desk
+      - key: Smtp__UseSsl
+        value: "true"
+      - key: Smtp__Enabled
+        value: "false"
+      - key: Twilio__AccountSid
+        sync: false
+      - key: Twilio__AuthToken
+        sync: false
+      - key: Twilio__FromPhoneNumber
+        sync: false
+      - key: Cloudinary__CloudName
+        sync: false
+      - key: Cloudinary__ApiKey
+        sync: false
+      - key: Cloudinary__ApiSecret
+        sync: false
+      - key: LocalStorage__BasePath
+        value: uploads
+      - key: LocalStorage__BaseUrl
+        value: /uploads
+
+databases:
+  - name: councillors-desk-db
+    plan: free
+    region: frankfurt
+    databaseName: councillors_desk
+    user: councillors_desk_user
