@@ -2,8 +2,9 @@ services:
   - type: web
     name: councillors-desk-api
     runtime: docker
-    dockerfilePath: ./CouncillorsDesk.Api/Dockerfile
-    dockerContext: .
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: backend
     plan: free
     region: frankfurt
     healthCheckPath: /health
