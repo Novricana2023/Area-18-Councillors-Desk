@@ -11,6 +11,8 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+ConnectionStringHelper.EnsureDefaultConnection(builder.Configuration);
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers()
