@@ -28,7 +28,15 @@ function NewIssueForm() {
   const [error, setError] = useState("");
   const [photos, setPhotos] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState<{ referenceNumber: string; issueId: string; title: string } | null>(null);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<{
+    title: string;
+    description: string;
+    category: IssueCategory;
+    location: string;
+    latitude: number;
+    longitude: number;
+    isPrivate: boolean;
+  }>({
     title: "",
     description: "",
     category: IssueCategory.Other,
